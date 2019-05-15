@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 using DG.Tweening;
 using System;
 using UnityEngine.UI;
+using GooglePlayGames.BasicApi;
+using GooglePlayGames;
 
 public class MenuManager : MonoBehaviour {
 
@@ -31,9 +33,27 @@ public class MenuManager : MonoBehaviour {
         setDefaultPosition();
         setSpawnPosition();
         tittleMove();
+        btnPlay.SetActive(false);
+        Login();
     }
 
-    
+    private void Login()
+    {
+        PlayGamesClientConfiguration config = new PlayGamesClientConfiguration.Builder().Build();
+        PlayGamesPlatform.InitializeInstance(config);
+        PlayGamesPlatform.Activate();
+        Social.localUser.Authenticate((bool success) =>
+        {
+            if (success == true)
+            {
+                btnPlay.SetActive(true);
+            }
+            else
+            {
+                btnPlay.SetActive(true);
+            }
+        });
+    }
 
     private void setDefaultPosition()
     {

@@ -324,9 +324,25 @@ public class GameManager : MonoBehaviour {
         if(highscore > GameplayDataManager.getInstance().HighScore)
         {
             GameplayDataManager.getInstance().HighScore = highscore;
+            PostScore(GameplayDataManager.getInstance().HighScore);
         }
 
         GameplayDataManager.getInstance().saveGame();
+    }
+
+    public void PostScore(long _score)
+    {
+        Social.ReportScore(_score, GPGSIds.leaderboard_best_score, (bool success) =>
+        {
+            if (success)
+            {
+
+            }
+            else
+            {
+
+            }
+        });
     }
 
     private List<VfxPunchText> listOfVfx = new List<VfxPunchText>();

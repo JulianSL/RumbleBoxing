@@ -1,5 +1,6 @@
 ﻿using GAF.Assets;
 using GAF.Core;
+using GooglePlayGames;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -190,5 +191,9 @@ public class ShopMenuManager : MonoBehaviour {
         Application.Quit();
     }
 
-    
+    public void ShowLeaderboard()
+    {
+        PlayGamesPlatform.Instance.ShowLeaderboardUI(GPGSIds.leaderboard_best_score);
+    }
+
 }

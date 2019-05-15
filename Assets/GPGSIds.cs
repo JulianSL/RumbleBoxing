@@ -22,9 +22,10 @@
 ///
 
 
-public static class RumbleBoxingResources
+public static class GPGSIds
 {
-        public const string leaderboard_longest_round = "CgkI2-WtvssCEAIQAQ"; // <GPGSID>
+        public const string leaderboard_best_score = "CgkIrKX4w44aEAIQAQ"; // <GPGSID>
+        public const string achievement_test_achievement = "CgkIrKX4w44aEAIQAw"; // <GPGSID>
 
 }
 
